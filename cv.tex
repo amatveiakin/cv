@@ -1,0 +1,161 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsmath}
+\usepackage{a4wide}
+\usepackage{indentfirst}
+\usepackage{color}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\definecolor{darkblue}{rgb}{0,0,0.5}
+
+\hypersetup{
+  unicode=true,
+  colorlinks=true,
+  urlcolor=darkblue
+}
+
+\pagestyle{empty}
+
+\newcommand{\SectionTemplate}[2]{\bigskip\par\noindent{\large\textbf{#1}}\hfill#2\par}
+\newcommand{\SectionQ}[4]{\SectionTemplate{#1}{\raisebox{#4}[0pt][0pt]{\includegraphics[scale=#3]{pics/#2}}}}
+\newcommand{\Section}[1]{\SectionTemplate{#1}{}}
+\newcommand{\SectionComment}[1]{\noindent{\footnotesize\textbf{#1}}}
+\newcommand{\alternative}[1]{\textcolor[rgb]{0.5,0.5,0.5}{#1}}
+\newcommand{\mailto}[1]{\href{mailto:#1}{#1}}
+\newenvironment{items}{\begin{itemize}[label=]}{\end{itemize}}
+\newenvironment{subitems}{\begin{itemize}[topsep=0pt]}{\end{itemize}}
+
+
+\begin{document}
+
+% Контактные данные, страна/город проживания
+\SectionQ{Personal Information}{me.jpg}{0.22}{-3.4cm}
+\begin{items}
+  \item My name is Andrei Matveiakin \alternative{(Андрей Матвеякин).}
+
+  \item I live at \\
+  Schaufelbergerstrasse 57, 8055 Zürich, Switzerland
+
+  \item You can contact me by \\
+  \begin{tabular}{@{}ll}
+    phone: & +7~985~967-02-63, \\
+    e-mail \& hangouts: & \mailto{matveyakin@gmail.com}, \\
+    skype: & matveyakin.
+  \end{tabular}
+\end{items}
+
+
+% Университет, даты обучения, специальность, уровень (master). Также можете включить туда любые дополнительные курсы
+\Section{Education}
+\begin{items}
+  \item In 2012 I have graduated with Honors \\
+  from \href{http://www.msu.ru/en/}{Lomonosov Moscow State University} \\
+  with the qualification of Specialist in Mathematics \\
+  and specialization in Computational Mathematics.
+\end{items}
+
+
+% Название компании, даты работы там, Ваша должность, краткое описание деятельности
+\Section{Work Experience}
+\begin{items}
+  \item For the last 3.5 years
+  I've been working as software developer in \href{http://rfdyn.com/}{Rock Flow Dynamics},
+  writing a petroleum reservoir simulator called tNavigator.
+
+%   TODO: wording
+%   \item These are the major tasks I have been performing (in groups of 3 to 6 people):
+  \item These are the major problems I have been solving (in groups of 3 to 6 people):
+  \begin{subitems}
+    \item Module that allows to watch and manage calculations on a remote cluster;
+    \item Support for variables and conditional expressions in input language;
+    \item Alkaline, surfactant and polymer injection simulation;
+    \item And the main thing---history matching module. In a nutshell history matching is an inverse problem to the equation that tNavigator usually solves. The aim is to find a set of coefficients for which the solution minimizes a functional describing deviation between calculated and historical values. To solve this problem we had to deal with a bunch of tasks, such as developing a computational queue manager, implementing and tuning minimization algorithms and writing GUI that displays comparative graphs and diagrams on basis of computational results, which are likely not fitting in RAM.
+  \end{subitems}
+\end{items}
+
+
+% Ваши основные языки программирования, операционные системы и тд
+\Section{Technologies}
+\begin{items}
+  \item I mainly program in C++ trying to keep an eye on new language features; \\
+  write scripts in Bash and Python when necessary. \\
+  Have also studied D and Haskell, but haven't used them in real life yet.
+
+  \item I am familiar with C++ Standard Library and Qt and \\
+  have some experience with Boost and OpenGL.
+\end{items}
+% TODO: OS, etc.
+% TODO: OpenCV, SFML - ?
+\newpage
+
+% NOTE:  I've splitted it into 2 parts % TODO: What it ok?
+% Additional information / Awards and achievements
+% - Информация о вашей работе над open-source проектами (можно с ссылками)
+% - Опыт и результаты участия в олимпиадах по математике и информатике (даже со школьных времен)
+% - Любые проекты, сделанные "для себя" самостоятельно или с друзьями
+\Section{Projects Besides Work}   % TODO: Rename header
+\begin{items}
+  \item I'm used to writing utils for my daily tasks when there is not suitable solution, e.\,g.
+  \begin{subitems}
+    \item I wrote a \href{https://github.com/amatveyakin/area-measurement}{tool} that allows to quickly measure lengths and areas of objects on a 2D picture and export printable result;
+    \item Another example is \href{https://github.com/amatveyakin/random-chess-helper}{mobile app} (initially written for Symbian 60, then ported to Android) that generates positions for Chess-960 (aka Fischer Random Chess).
+  \end{subitems}
+
+  \item Several years ago my friend Alexey Eremin and I wrote a couple of video games:
+  \begin{subitems}
+    \item A split screen \href{https://github.com/amatveyakin/crazy-tetris}{tetris-like game} where several players battle each other using bonuses that occasionally appear in playing field;
+    \item A demo of \href{https://github.com/amatveyakin/cubricate}{minecraft-like game} with raytracing.
+  \end{subitems}
+
+  \item Now I prefer to do something more useful, i.\,e. contribute open source projects, mostly
+  \begin{subitems}
+    \item \href{http://www.krusader.org/}{Krusader}: improve queue manager, add drag\&drop target highlighting, add new actions, fix several bugs and leaks, do some speed-up, clean up code;
+    \item \href{http://kate-editor.org/}{Kate}: add block editing, enhance search interface.
+  \end{subitems}
+\end{items}
+
+
+\Section{Awards and Achievements}
+\begin{items}
+  \item
+  My most noticeable achievements in competitive programming and mathematics are:
+  \begin{subitems}
+    \item All-Russian Olympiad in Informatics III prize in 11 grade,
+    \item All-Russian Olympiad in Informatics III prize in 10 grade,
+    \item Krasnodar Territory Olympiad in Mathematics I prize in 11 grade, and
+    \item Multiple awards in the \href{http://en.wikipedia.org/wiki/Tournament_of_the_Towns}{Tournament of the Towns}, best result---22.5 points.
+  \end{subitems}
+\end{items}
+
+
+% Языки, которыми Вы владеете
+\Section{Languages}
+\begin{items}
+  \item Russian is my mother tongue, \\
+  I speak English fairly fluently, \\
+  and have a little grasp of French.
+\end{items}
+
+
+% По желанию :)
+\Section{Interests}
+\SectionComment{(besides programming :-)}   % Do we need the joke?
+\begin{items}
+  \item First of all, board games, both paying and inventing new ones. I am particularly fascinated with bughouse chess. \\
+  My favorite sports are volleyball and table tennis. I also enjoy camping trips. \\
+  And I like listening to music and singing to a guitar in a good company.
+\end{items}
+\bigskip
+\bigskip
+
+
+\vfill
+\begin{raggedleft}
+  \scriptsize\textsl{Compilation date — February 16, 2014}   % TODO: Set date automatically
+
+\end{raggedleft}
+
+\end{document}
