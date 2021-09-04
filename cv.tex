@@ -1,16 +1,18 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel}
+\usepackage{geometry}
 \usepackage{amsmath}
 \usepackage{a4wide}
-\usepackage{indentfirst}
 \usepackage{color}
 \usepackage{array}
 \usepackage{enumitem}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{tabularx}
 
 \definecolor{darkblue}{rgb}{0,0,0.5}
+\definecolor{grey}{rgb}{0.5,0.5,0.5}
 
 \hypersetup{
   unicode=true,
@@ -20,142 +22,116 @@
 
 \pagestyle{empty}
 
-\newcommand{\SectionTemplate}[2]{\bigskip\par\noindent{\large\textbf{#1}}\hfill#2\par}
-\newcommand{\SectionQ}[4]{\SectionTemplate{#1}{\raisebox{#4}[0pt][0pt]{\includegraphics[scale=#3]{pics/#2}}}}
-\newcommand{\Section}[1]{\SectionTemplate{#1}{}}
-\newcommand{\SectionComment}[1]{\noindent{\footnotesize\textbf{#1}}}
+\geometry{
+  a4paper,
+  left=20mm,
+  right=24mm,
+  top=16mm,
+  bottom=16mm,
+}
+
+% \newcommand{\Section}[1]{\medskip\par\noindent{\textbf{#1}}}
+% \newcommand{\Section}[1]{\medskip\par\noindent{\textsc{#1}}}
+\newcommand{\Section}[1]{\medskip\par\noindent{#1}}
 \newcommand{\hangleft}[1]{\makebox[0pt][r]{#1}}
-\newcommand{\alternative}[1]{\textcolor[rgb]{0.5,0.5,0.5}{#1}}
+\newcommand{\alternative}[1]{\textcolor{grey}{#1}}
 \newcommand{\mailto}[1]{\href{mailto:#1}{#1}}
-\newcommand{\dates}[2]{\textbf{\hangleft{\includegraphics[scale=0.05]{pics/calendar.png} }#1–#2} \par}
+\newcommand{\icon}[1]{\hangleft{\raisebox{-0.07em}{\includegraphics[scale=0.3]{pics/#1.png}} }\ignorespaces}
 \newcommand{\gap}{\vspace{0.4em}}
-\newenvironment{items}{\begin{itemize}[label=]}{\end{itemize}}
+
+\newcommand{\techhi}[1]{\textbf{#1}}
+\newcommand{\techlow}[1]{\textsl{\textcolor{grey}{#1}}}
+
 \newenvironment{subitems}{\begin{itemize}[topsep=0pt]}{\end{itemize}}
 
 
+% TODO: Fix hypenation
+
 \begin{document}
 
-% Контактные данные, страна/город проживания
-\SectionQ{Personal Information}{me.jpg}{0.25}{-3.5cm}
-\begin{items}
-  \item
-%   \renewcommand{\arraystretch}{1.5}
-  \begin{tabular}{@{}ll}
-    Name: & Andrei Matveiakin \\
-          & \alternative{\hangleft{(}Андрей Матвеякин)} \gap \\
-    Address: & Schaufelbergerstrasse 57, \\
-             & 8055 Zürich, Switzerland \gap \\
-    Phone: & +41~79~315-04-02 \gap \\
-    E-mail \& Hangouts: & \mailto{matveyakin@gmail.com} \gap \\
-    Skype: & matveyakin
-  \end{tabular}
-\end{items}
+% TODO: github link
+\noindent
+\begin{tabularx}{\textwidth}{lXr}
+  Andrei Matveiakin & & \mailto{a.matveiakin@gmail.com} \\
+  \alternative{\hangleft{(}Андрей Матвеякин)} & & \\
+\end{tabularx}
+\medskip
 
+\begin{itemize}[label=]
+  \item\icon{education}\textbf{2007--2012:} \href{http://www.msu.ru/en/}{Lomonosov Moscow State University}.
 
-% Университет, даты обучения, специальность, уровень (master). Также можете включить туда любые дополнительные курсы
-\Section{Education}
-\begin{items}
-  \item \dates{2007}{2012}
-  In 2012 I graduated with Honors
-  from \href{http://www.msu.ru/en/}{Lomonosov Moscow State University}
-  with the qualification of Specialist in Mathematics
-  and specialization in Computational Mathematics.
-\end{items}
+  Graduated with Honors with the qualification of Specialist in Mathematics and specialization in Computational Mathematics.
 
+  \item\icon{job}\textbf{2010--2014:} \href{http://rfdyn.com/about/}{Rock Flow Dynamics}, Software Engineer.
 
-% Название компании, даты работы там, Ваша должность, краткое описание деятельности
-\Section{Work Experience}
-\begin{items}
-  \item \dates{2010}{2014}  % TODO
-  Software developer at \href{http://rfdyn.com/about/}{Rock Flow Dynamics}.
-  Worked on a petroleum reservoir simulator called tNavigator.
+  Worked on a petroleum reservoir simulator called tNavigator. Participated in projects:
+  remote computation management,
+  adding support for variables and conditional expressions in input language
+  alkaline, surfactant and polymer injection simulation.
 
-%   TODO: wording
-%   \item These are the major tasks I have been performing (in groups of 3 to 6 people):
-  Major problems I have been solving (in groups of 3 to 6 people):
-  \begin{subitems}
-    \item Module that allows to watch and manage calculations on a remote cluster;
-    \item Support for variables and conditional expressions in input language;
-    \item Alkaline, surfactant and polymer injection simulation;
-    \item And the main thing---history matching module. In a nutshell, history matching is an inverse problem to the equation that tNavigator usually solves. The aim is to find a set of coefficients for which the solution minimizes a functional describing deviation between calculated and historical values. This project included a lot of subtasks, such as implementing and tuning minimization algorithms, developing a computational queue manager, and writing a GUI that displays graphs and diagrams for huge amounts of data which don't fit in RAM.
-  \end{subitems}
+  Co-authored of a “history matching” module.
+  We used differential evolution to resolve uncertainties in the reservoir model
+  so as to minimize deviation between calculated and historical behavior.
 
-  \item \dates{2014}{present}
-  Software developer at \href{https://www.google.com/about/company/}{Google}.
-  Work on Search Infrastructure, powering Google's indexing applications.
-\end{items}
-\newpage
+  Co-led a grass root initiative to migrate from C++03 to C++11.
 
+  \item\icon{job}\textbf{2014--2020:} \href{https://www.google.com/about/company/}{Google}, Software Engineer.
 
-% Ваши основные языки программирования, операционные системы и тд
-\Section{Technologies}
-\begin{items}
-  \item I mainly program in C++ trying to keep an eye on new language features; \\
-  write scripts in Python and Bash when necessary. \\
-  Have also studied D and Haskell, but haven't used them in real life yet.
+  Work in Search Infrastructure, powering Google's indexing applications.
 
-  \item I am familiar with C++ Standard Library and Qt and \\
-  have some experience with Boost and OpenGL.
-\end{items}
-% TODO: OS, etc.
-% TODO: OpenCV, SFML - ?
+  Essentially our team developed a hugely scalable distributed eventually consistent~DB
+  with additional features like data processing and regulatory compliance.
 
-% NOTE:  I've splitted it into 2 parts % TODO: What it ok?
-% Additional information / Awards and achievements
-% - Информация о вашей работе над open-source проектами (можно с ссылками)
-% - Опыт и результаты участия в олимпиадах по математике и информатике (даже со школьных времен)
-% - Любые проекты, сделанные "для себя" самостоятельно или с друзьями
-\Section{Projects Besides Work}   % TODO: Rename header
-\begin{items}
-  \item I'm used to writing utils for my daily tasks when there is not suitable solution, e.\,g.
-  \begin{subitems}
-    \item I wrote a \href{https://github.com/amatveyakin/area-measurement}{tool} that allows to quickly measure lengths and areas of objects on a 2D picture and export printable result;
-    \item Another example is \href{https://github.com/amatveyakin/random-chess-helper}{mobile app} (initially written for Symbian 60, then ported to Android) that generates positions for Chess-960 (aka Fischer Random Chess).
-  \end{subitems}
+  I mostly worked on ingress and repository maintenance.
 
-  \item Several years ago my friend Alexey Eremin and I wrote a couple of video games:
-  \begin{subitems}
-    \item A split screen \href{https://github.com/amatveyakin/crazy-tetris}{tetris-like game} where several players battle each other using bonuses that occasionally appear in playing field;
-    \item A demo of \href{https://github.com/amatveyakin/cubricate}{minecraft-like game} with raytracing.
-  \end{subitems}
+  Participated in an effort to enable automatic GDPR compliance for private data.
+  Here I led the work related to ingress and integrated testing
+  (our framework allowed to simulate large distributed systems on one machine with high fidelity).
 
-  \item Now I prefer to do something more useful, i.\,e. contribute open source projects, mostly
-  \begin{subitems}
-    \item \href{http://www.krusader.org/}{Krusader}: improve queue manager, add drag\&drop target highlighting, add new actions, fix several bugs and leaks, do some speed-up, clean up code;
-    \item \href{http://kate-editor.org/}{Kate}: add block editing, enhance search interface.
-  \end{subitems}
-\end{items}
+  Authored and led multiple code health projects using advanced code reqriting tools.
 
+  \item\icon{job}\textbf{2020--present:} Studying multiple polylogarithms, Research Engineer
 
-\Section{Awards and Achievements}
-\begin{items}
-  \item
-  My most noticeable achievements in competitive programming and mathematics are:
-  \begin{subitems}
-    \item All-Russian Olympiad in Informatics III prize in 11 grade,
-    \item All-Russian Olympiad in Informatics III prize in 10 grade,
-    \item Krasnodar Territory Olympiad in Mathematics I prize in 11 grade, and
-    \item Multiple awards in the \href{http://en.wikipedia.org/wiki/Tournament_of_the_Towns}{Tournament of the Towns}, best result---22.5 points.
-  \end{subitems}
-\end{items}
+  TODO: ...
 
+  \item\icon{volunteering}
+  Contributed to \href{http://www.krusader.org/}{Krusader} and
+  \href{http://kate-editor.org/}{Kate}\,---\,parts of KDE open source project.
 
-% Языки, которыми Вы владеете
-\Section{Languages}
-\begin{items}
-  \item
-  \begin{subitems}
-    \item Russian (mother tongue),
-    \item English (fluently),
-    \item German (basic, B1).
-  \end{subitems}
-\end{items}
+  % TODO: Icon
+  \item\icon{wink} Created an online version of a Russian word game “Hat”:
+  \href{https://hatgame.web.app/}{https://hatgame.web.app/}\\
+  (under development, mobile apps coming soon).
+\end{itemize}
 
+\Section{Skills} I've \techhi{mastered,} or possess, or \techlow{have some experience with:}
 
-\vfill
-\begin{raggedleft}
-  \scriptsize\textsl{Compilation date — May 10, 2016}   % TODO: Set date automatically
+% TODO: Make icons more distinguishable
+% TODO: Make all icons "white inside" and sync line width (specifically, for the magic wand)
+% TODO: Finish
+% TODO: "regular expressions" easter egg?
+% TODO: Clang AST
+\begin{itemize}[label=,topsep=0.2em,itemsep=0.2em]
+  \item\icon{language-programing} \techhi{C++ (up to C++17), GTest/GMock,} Abseil, Qt, Clang~AST, \techlow{Eigen, Boost}
+  \item\icon{language-programing} Python, Numpy, \techlow{TensorFlow}
+  \item\icon{language-programing} Dart, Flutter, \techlow{Ionic}
+  \item\icon{language-programing} \techlow{Rust, Haskell, Lua}
+  \item\icon{language-programing} \techlow{HTML, CSS, JavaScript, TypeScript, Angular}
+  \item\icon{magic-wand} Git, \techlow{Bash,} Bazel, \techlow{CMake}
+  \item\icon{brain} \techhi{Backend,} Frontend, Unit testing, Integration testing
+  \item\icon{brain} System design, Algorithms \& Data structures, Optimization (high-level \& low-level)
+  \item\icon{brain} Parallel/Concurrent programming, Distributed systems, \techlow{Databases}
+  \item\icon{pc} Linux, Windows, \techlow{Android, Web}
+  \item\icon{language-natural} \techhi{Russian (naitive), English (fluent),} \techlow{German (B1)}
+\end{itemize}
 
-\end{raggedleft}
+% TODO: Hobbies
+
+% \bigskip
+% \vfill
+% \begin{raggedleft}
+%   \scriptsize\textsl{Compilation date~--- Sep 2, 2021}   % TODO: Set date automatically
+
+% \end{raggedleft}
 
 \end{document}
