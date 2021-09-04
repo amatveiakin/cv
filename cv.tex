@@ -1,5 +1,6 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[english,russian]{babel}
 \usepackage{geometry}
 \usepackage{amsmath}
@@ -36,7 +37,7 @@
 \newcommand{\hangleft}[1]{\makebox[0pt][r]{#1}}
 \newcommand{\alternative}[1]{\textcolor{grey}{#1}}
 \newcommand{\mailto}[1]{\href{mailto:#1}{#1}}
-\newcommand{\icon}[1]{\hangleft{\raisebox{-0.07em}{\includegraphics[scale=0.3]{pics/#1.png}} }\ignorespaces}
+\newcommand{\icon}[1]{\hangleft{\raisebox{-0.1em}{\includegraphics[scale=0.3]{pics/#1.png}} }\ignorespaces}
 \newcommand{\gap}{\vspace{0.4em}}
 
 \newcommand{\techhi}[1]{\textbf{#1}}
@@ -57,51 +58,60 @@
 \end{tabularx}
 \medskip
 
+\selectlanguage{english}
+
 \begin{itemize}[label=]
-  \item\icon{education}\textbf{2007--2012:} \href{http://www.msu.ru/en/}{Lomonosov Moscow State University}.
+  \item\icon{education}\textbf{2007--2012:} \href{http://www.msu.ru/en/}{Moscow State University}, Student.
 
   Graduated with Honors with the qualification of Specialist in Mathematics and specialization in Computational Mathematics.
+  Equivalent of masters degree.
+
+  \item\icon{education} Competitive programming background.
+  Prizes in all-Russian Olympiad in Informatics.
+\end{itemize}
+\medskip
+
+\begin{itemize}[label=]
+  \item\icon{job}\textbf{2020--present:} Studying multiple polylogarithms, Research Engineer.
+
+  Developing a specialized computer algebra system for discovering
+  multiple polylogarithm identities:
+  \href{https://github.com/amatveiakin/polykit}{https://github.com/amatveiakin/polykit}.
+
+  Presented the work in \href{issac-conference.org/2021/posters.php}{ISSAC~2021},
+  got the Distinguished Short Communication Award.
+  Results will be detailed in a paper together with Daniil Rudenko (in preparation).
+
+  \item\icon{job}\textbf{2014--2020:} \href{https://www.google.com/about/company/}{Google}, Software Engineer.
+
+  Worked in Search Infrastructure.
+  In essence, our team developed a hugely scalable distributed eventually consistent~DB
+  powering Google's indexing applications.
+
+  Mostly worked on ingress and repository maintenance.
+
+  Played a key role in enabling automatic GDPR compliance for private data.
+  Here I owned the work related to ingress and integrated testing.
+
+  Authored and led multiple code health projects using advanced code rewriting tools.
+  Taught C++ beginner classes.
 
   \item\icon{job}\textbf{2010--2014:} \href{http://rfdyn.com/about/}{Rock Flow Dynamics}, Software Engineer.
 
-  Worked on a petroleum reservoir simulator called tNavigator. Participated in projects:
-  remote computation management,
-  adding support for variables and conditional expressions in input language
-  alkaline, surfactant and polymer injection simulation.
-
-  Co-authored of a “history matching” module.
+  Worked on a petroleum reservoir simulator called tNavigator.
+  Co-authored a “history matching” module.
   We used differential evolution to resolve uncertainties in the reservoir model
   so as to minimize deviation between calculated and historical behavior.
 
   Co-led a grass root initiative to migrate from C++03 to C++11.
 
-  \item\icon{job}\textbf{2014--2020:} \href{https://www.google.com/about/company/}{Google}, Software Engineer.
-
-  Work in Search Infrastructure, powering Google's indexing applications.
-
-  Essentially our team developed a hugely scalable distributed eventually consistent~DB
-  with additional features like data processing and regulatory compliance.
-
-  I mostly worked on ingress and repository maintenance.
-
-  Participated in an effort to enable automatic GDPR compliance for private data.
-  Here I led the work related to ingress and integrated testing
-  (our framework allowed to simulate large distributed systems on one machine with high fidelity).
-
-  Authored and led multiple code health projects using advanced code reqriting tools.
-
-  \item\icon{job}\textbf{2020--present:} Studying multiple polylogarithms, Research Engineer
-
-  TODO: ...
-
   \item\icon{volunteering}
   Contributed to \href{http://www.krusader.org/}{Krusader} and
   \href{http://kate-editor.org/}{Kate}\,---\,parts of KDE open source project.
 
-  % TODO: Icon
   \item\icon{wink} Created an online version of a Russian word game “Hat”:
   \href{https://hatgame.web.app/}{https://hatgame.web.app/}\\
-  (under development, mobile apps coming soon).
+  (in beta, mobile apps coming soon).
 \end{itemize}
 
 \Section{Skills} I've \techhi{mastered,} or possess, or \techlow{have some experience with:}
@@ -122,7 +132,8 @@
   \item\icon{brain} System design, Algorithms \& Data structures, Optimization (high-level \& low-level)
   \item\icon{brain} Parallel/Concurrent programming, Distributed systems, \techlow{Databases}
   \item\icon{pc} Linux, Windows, \techlow{Android, Web}
-  \item\icon{language-natural} \techhi{Russian (naitive), English (fluent),} \techlow{German (B1)}
+  \smallskip
+  \item\icon{language-natural} Russian (naitive), English (fluent), \techlow{German (B1)}
 \end{itemize}
 
 % TODO: Hobbies
